@@ -1,0 +1,76 @@
+{% extends "headeradmin.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/showpacstyle.css')}}">
+<link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/homestyle.css')}}">
+{% endblock head %}
+
+
+{% block maincontainer %}
+    <section class="showpac">
+
+        <div class="image">
+
+            <img src="{{ url_for('static',filename='/../assets/images/uploads/' + data.event_photo)}}" alt="">
+
+        </div>
+
+        <div class="content">
+
+            <div class="content-header">
+                <h1>{{data.event_name}}</h1>
+            </div>
+
+        <div class="content-body">
+            <h3>Etkinlik Açıklaması:</h3>
+            <p>{{data.event_description}}</p>
+            <hr>
+            <h3><i class="far fa-building"></i> Etkinlik Mekanı: </h3>
+            <p>{{data.event_place}}</p>
+
+            <hr>
+            <h3><i class="far fa-calendar-check"></i> Tarih:</h3>
+            <p>{{data.event_time}}</p>
+            <hr>
+            <h3><i class="far fa-clock"></i> Saat:</h3>
+            <p>{{data.event_start_time}} - {{data.event_finish_time}}</p>
+            <hr>
+            <h3><i class="fas fa-briefcase"></i> Etkinliği Düzenleyen Firma: </h3>
+            <p>{{data.event_company}}</p>
+            <hr>
+            <h3><i class="fas fa-angle-double-up"></i> Etkinliği Düzenleyen Bölüm: </h3>
+            <p>{{data.event_department}}</p>
+            <hr>
+            <h3><i class="fa-solid fa-people-group"></i> Konuşmacılar: </h3>
+            <p>{{data.event_speakers}}</p>
+
+            
+            {% if session["kullanicigirisi"] %}
+                        {% if varmi %}
+                        <form action="/etkinligebasvur/{{data.id}}/{{data.id}}">
+                          <button class="sbtn" disabled type="submit">Zaten Başvurdunuz</button>
+                        </form>
+                        {% else %}
+                        <form action="/etkinligebasvur/{{data.id}}/{{data.id}}">
+                          <button class="sbtn" type="submit">Etkinliğe Başvur</button>
+                        </form>
+                        {% endif %}
+                      {% else %}
+                      <div class="content-participant">
+                          <a href="/katilanlarigoruntule/{{data.id}}"><button class="bbtn">Etkinliğe Katılanlar</button></a>
+                        </div>
+                        <form action="/etkinligiguncelle/{{data.id}}">
+                        <div class="content-button">
+                          <button class="sbtn" type="submit">Etkinliği Güncelle</button></div>
+                        </form>
+                        
+                        <form action="/etkinligisil/{{data.id}}">
+                        <div class="content-delete">
+                          <button class="abtn" type="submit">Etkinliği Sil</button></div>
+                        </form>
+                      {% endif %}   
+            </div>
+        </div>
+    </section>
+{% endblock maincontainer %}
+

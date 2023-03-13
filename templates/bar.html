@@ -1,0 +1,54 @@
+<div class="header">
+        <div class="header-menu">
+          <div class="title">
+            <!-- KTÜ <span>Etkinlik</span> -->
+            <a href="/kullanicianasayfa"><img src="{{ url_for('static',filename='/../assets/images/logo.png')}}" alt="logo" class="logo"></a>
+          </div>
+          <div class="sidebar-btn">
+            <i class="fas fa-bars"></i>
+          </div>
+          <div class="search-container">
+            <form action="/ara" method = "POST">
+              <input type="text" placeholder="Ara..." name="search">
+              <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+            <button type="button" onclick="location.href='/cikisyap'"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- header menu end -->
+      <!-- sidebar start -->
+      <div class="sidebar">
+        <div class="sidebar-menu">
+          <center class="profile">
+            <img src="{{ url_for('static',filename='/../assets/images/1.png')}}" alt="">
+            <p>{{session['name']}} {{session['surname']}}</p>
+          </center>
+          <li class="item" id="profile">
+            <a href="#profile" class="menu-btn">
+              <i class="fa-solid fa-user"></i><span>Profil<i class="fas fa-angle-right drop-down"></i></span>
+            </a>
+            <div class="sub-menu">
+              <a href="/kullaniciprofili"></i><span>Profili Görüntüle</span></a>
+              <a href="/profilduzenle"></i><span>Profili Düzenle</span></a>
+              <a href="/sertifikalarim"></i><span>Sertifikaları Görüntüle</span></a>
+            </div>
+          </li>
+          <li class="item">
+            <a href="/etkinliklerigoruntule" class="menu-btn">
+              <i class="fa-solid fa-chalkboard-user"></i><span>Etkinlikler</span>
+            </a>
+          </li>
+          <li class="item">
+            <a href="/firmalar" class="menu-btn">
+              <i class="fa-solid fa-building-user"></i><span>Firmalar</span>
+            </a>
+          </li>
+          
+        </div>
+        <div class="footer">
+        <a href="/bizeulasin" class="footer-btn">
+          <i class="fa-solid fa-comments"></i><span>Bize Ulaşın</span>
+        </a>
+        </div>
+      </div>

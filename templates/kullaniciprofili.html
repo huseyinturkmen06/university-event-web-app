@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/scroll.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/profile.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/header.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <title>KTÜ Etkinlik Sistemi</title>
+</head>
+<body>
+    <!-- wrapper start -->
+    <div class="wrapper">
+      <!-- header menu start -->
+      {% include "bar.html" %}
+      <!-- sidebar end -->
+      <!-- main container start -->
+      <div class="main-container">
+        <div class="container">
+      <!-- Profil Kutusu -->
+      <div class="container-box">
+        <div class="profile-box">
+          <div class="profile-img">
+                <img src="{{ url_for('static',filename='/../assets/images/1.png')}}" alt="profilresmi">
+          </div>
+          <div class="info-box">
+                    <table class="infotable">
+                        <tr>
+                          <th colspan="2" class="theader">Kullanıcı Bilgileri</th>
+                        </tr>
+                        <tr>
+                          <td class="colspan-header">Ad Soyad</td>
+                          <td>{{session['name']}} {{session['surname']}}</td>
+                        </tr>
+                        <tr>
+                          <td class="colspan-header">Bölüm</td>
+                          <td>{{session['major']}}</td>
+                        </tr>
+                        <tr>
+                          <td class="colspan-header">Sınıf</td>
+                          <td>{{session['clas']}}. Sınıf</td>
+                        </tr>
+                        <tr>
+                          <td class="colspan-header">Öğrenci No</td>
+                          <td>{{session['student_id']}}</td>
+                        </tr>
+                        <tr>
+                          <td class="colspan-header">E-posta</td>
+                          <td>{{session['email']}}</td>
+                        </tr>
+                        <tr>
+                          <td class="colspan-header">Cep Telefon No</td>
+                          <td>{{session['phone_number']}}</td>
+                        </tr>
+                      </table>
+          </div>
+          <div class="profile-btn">
+                <div>
+                    <a href="/profilduzenle" class="button">
+                        <img class="settingsicon" src="https://cdn.iconscout.com/icon/free/png-256/settings-2856913-2377697.png" alt="settings">
+                        <span>Profili Güncelle</span> 
+                    </a>
+                </div>
+          </div>
+        </div>
+      </div>
+<!-- Etkinlikler Kutusu -->
+      <div class="container-box">
+            <div class="activity-box">
+                <!-- Etkinlik kutusu header -->
+                <div class="activity-header">
+                    Katıldığım Son Etkinlikler                  
+                </div>
+              <!-- Etkinlik kutusu body -->
+              <table>
+                <thead>
+                  <tr class="thead">
+                    <th>Etkinlik Adı</th>
+                    <th>Tarih</th>
+                    <th>Yer</th>
+                    <th>Konuşmacı</th>
+                  </tr>
+                </thead>
+
+                  {% for d in data2 %}
+                  <tr>
+                    <th><a href="/etkinlikdetay/{{d.id}}">{{d.event_name}}</a></th>
+                    <th>{{d.event_time}}</th>
+                    <th>{{d.event_place}}</th>
+                    <th>{{d.event_speakers}}</th>
+                  </tr>
+                  {% endfor %}
+
+              </table>
+            </div>
+      </div>
+      
+      <!-- main container end -->
+    </div>
+    <!-- wrapper end -->
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $(".sidebar-btn").click(function(){
+          $(".wrapper").toggleClass("collapse");
+        });
+        $('.menu-btn').click(function(){
+                $(this).next('.sub-menu').slideToggle();
+                $(this).find('.drop-down').toggleClass('rotate');
+        });
+      });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/header.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <title>KTÜ Etkinlik Sistemi</title>
+</head>
+<body>
+    <!-- wrapper start -->
+    <div class="wrapper">
+      <!-- header menu start -->
+      <div class="header">
+        <div class="header-menu">
+          <div class="title">
+            <!-- KTÜ <span>Etkinlik</span> -->
+            <a href="index.html"><img src="{{ url_for('static',filename='/../assets/images/logo.png')}}" alt="logo" class="logo"></a>
+          </div>
+          <div class="sidebar-btn">
+            <i class="fas fa-bars"></i>
+          </div>
+          <div class="search-container">
+            <form action="/action_page.php">
+              <input type="text" placeholder="Ara..." name="search">
+              <button type="submit"><i class="fa fa-search"></i></button>
+              <button type="button"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- header menu end -->
+      <!-- sidebar start -->
+      <div class="sidebar">
+        <div class="sidebar-menu">
+          <center class="profile">
+            <img src="{{ url_for('static',filename='/../assets/images/1.png')}}" alt="">
+            <p>Kullanıcı Adı</p>
+          </center>
+          <li class="item">
+            <a href="events.html" class="menu-btn">
+              <i class="fa-solid fa-chalkboard-user"></i><span>Etkinlikler</span>
+            </a>
+          </li>
+          <li class="item">
+            <a href="companies.html" class="menu-btn">
+              <i class="fa-solid fa-building-user"></i><span>Firmalar</span>
+            </a>
+          </li>
+          <li class="item" id="profile">
+            <a href="#profile" class="menu-btn">
+              <i class="fa-solid fa-user"></i><span>Profil<i class="fas fa-angle-right drop-down"></i></span>
+            </a>
+            <div class="sub-menu">
+              <a href="showuserprofile.html"></i><span>Profili Görüntüle</span></a>
+              <a href="updateprofile.html"></i><span>Profili Düzenle</span></a>
+            </div>
+          </li>
+        </div>
+      </div>
+      <!-- sidebar end -->
+      <!-- main container start -->
+      <div class="main-container">
+        <div class="card">
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi dolorum harum culpa ullam excepturi pariatur modi facere voluptas nobis expedita error porro esse, doloribus voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore blanditiis mollitia soluta eius aut harum nihil perspiciatis quis ducimus expedita, adipisci earum explicabo architecto molestiae. Ratione optio nesciunt accusantium fugit obcaecati enim voluptas minus dignissimos ducimus soluta, iste, magnam repudiandae. Rem aspernatur nulla aperiam incidunt debitis quaerat consectetur ad explicabo!</p>
+        </div>
+        <div class="card">
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi dolorum harum culpa ullam excepturi pariatur modi facere voluptas nobis expedita error porro esse, doloribus voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore blanditiis mollitia soluta eius aut harum nihil perspiciatis quis ducimus expedita, adipisci earum explicabo architecto molestiae. Ratione optio nesciunt accusantium fugit obcaecati enim voluptas minus dignissimos ducimus soluta, iste, magnam repudiandae. Rem aspernatur nulla aperiam incidunt debitis quaerat consectetur ad explicabo!</p>
+        </div>
+        <div class="card">
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi dolorum harum culpa ullam excepturi pariatur modi facere voluptas nobis expedita error porro esse, doloribus voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore blanditiis mollitia soluta eius aut harum nihil perspiciatis quis ducimus expedita, adipisci earum explicabo architecto molestiae. Ratione optio nesciunt accusantium fugit obcaecati enim voluptas minus dignissimos ducimus soluta, iste, magnam repudiandae. Rem aspernatur nulla aperiam incidunt debitis quaerat consectetur ad explicabo!</p>
+        </div>
+      </div>
+      <!-- main container end -->
+    </div>
+    <!-- wrapper end -->
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $(".sidebar-btn").click(function(){
+          $(".wrapper").toggleClass("collapse");
+        });
+        $('.menu-btn').click(function(){
+                $(this).next('.sub-menu').slideToggle();
+                $(this).find('.drop-down').toggleClass('rotate');
+        });
+      });
+    </script>
+</body>
+</html>

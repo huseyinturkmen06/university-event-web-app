@@ -1,0 +1,108 @@
+{% extends "headeradmin.html" %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/warning.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/homestyle.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/showpacstyle.css')}}">
+{% endblock head %}
+
+
+
+{% block maincontainer %}
+
+{% if etkinlikler or firmalar %}
+                {% if etkinlikler %}
+            <section class="events" id="events">
+
+        <h1 class="heading">
+            <span>e</span>
+            <span>t</span>
+            <span>k</span>
+            <span>i</span>
+            <span>n</span>
+            <span>l</span>
+            <span>i</span>
+            <span>k</span>
+            <span>l</span>
+            <span>e</span>
+            <span>r</span>
+        </h1>
+
+        <div class="box-container">
+
+            {% for d in etkinlikler %}
+            <div class="box">
+                <div class="content">
+                    <h3><i class="far fa-clock"></i> {{d.event_name}}</h3>
+                    <p>{{d.event_time}}<p/>
+                    <a href="/etkinlikdetayadmin/{{d.id}}" class="btn">Etkinliği Görüntüle</a>
+                </div>
+            </div>
+            {% endfor %}
+
+            
+
+    </section>
+
+    <!-- events section ends -->
+    <!-- <section class="packbutton" id="packbutton">  -->
+
+    <div class="content">
+
+        <a href="/etkinliklerigoruntuleadmin" class="btn">Tüm Etkinlikler</a>
+    </div>
+
+        {% else %}
+        {% endif %}
+
+
+    <!-- companies section starts  -->
+
+   {% if firmalar %}
+    <section class="companies" id="companies">
+
+        <h1 class="heading">
+            <span>Ş</span>
+            <span>i</span>
+            <span>r</span>
+            <span>k</span>
+            <span>e</span>
+            <span>t</span>
+            <span>l</span>
+            <span>e</span>
+            <span>r</span>
+        </h1>
+
+        <div class="box-container">
+
+            {% for f in firmalar %}
+            <div class="box">
+                <img src="{{ url_for('static',filename='/../assets/images/uploads/' + f.company_photo)}}" alt="">
+                <div class="content">
+                    <h3>{{f.company_name}}</h3>
+                    <!--<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>-->
+                    <a href="/firmadetayadmin/{{f.company_id}}" class="btn">İncele</a>
+                </div>
+            </div>
+            {% endfor %}
+
+    </section>
+    <!-- companies section ends -->
+    <div class="content">
+
+        <a href="/firmalarigoruntule" class="btn">Tüm Şirketler</a>
+    </div>
+
+   {% else %}
+   {% endif %}
+        {% else %}
+        <div class="not">
+            <h1>Aradığınız Sonuç Bulunamadı.&#128269;</h1>
+        </div>
+        <div class="found">
+            <a href="/adminanasayfa" class="btn">ANASAYFA</a>
+        </div>
+        {% endif %}
+
+{% endblock maincontainer %}

@@ -1,0 +1,40 @@
+{% extends "headeradmin.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/showpacstyle.css')}}">
+<link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/homestyle.css')}}">
+{% endblock head %}
+
+{% block maincontainer %}
+<section class="showpac">
+
+        <div class="image">
+
+            <img src="{{ url_for('static',filename='/../assets/images/uploads/' + firma.company_photo)}}" alt="{{firma.company_photo}}">
+
+        </div>
+        <div class="content">
+        <div class="content-header">
+            <h1>{{firma.company_name}}</h1>
+        </div>
+
+        <div class="content-body">
+
+            <h3>Firma Açıklaması:</h3>
+            <p>{{firma.company_description}}</p>
+            <hr>
+            <h3>Firma Adresi:</h3>
+            <p>{{firma.company_address}}</p>
+            <hr>
+            <h3>Firma Yetkili Kişisi:</h3>
+            <p>{{firma.company_authorized_person}}</p>
+            <div class="content-button">
+                <a href="/firmaguncelle/{{firma.company_id}}"><button class="sbtn">Firmayı Güncelle</button></a>
+            </div>
+            <div class="content-delete">
+                <a href="/firmasil/{{firma.company_id}}"><button class="abtn">Firmayı Sil</button></a>
+            </div>
+        </div>
+        </div>
+    </section>
+{% endblock maincontainer %}

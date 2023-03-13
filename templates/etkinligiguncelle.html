@@ -1,0 +1,80 @@
+{% extends "headeradmin.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/formstyle.css')}}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
+{% endblock head %}
+
+{% block maincontainer %}
+<main class="container">
+        <!-- Sayfa Başlığı -->
+        <div class="formheader">
+            <h1>Etkinliği Güncelle</h1>
+        </div>
+
+        <!-- Etkinlik Oluşturma Formu -->
+        <div class="formbody">
+            <form action="/etkinligiguncelle/{{data.id}}" method="POST" enctype="multipart/form-data">
+                <div class="formitem">
+                  <label>Etkinlik Başlığı</label>
+                  <input type="text" name="event_name" value ="{{data.event_name}}" required>
+                </div>
+                <div class="formitem">
+                    <label>Etkinlik Açıklaması</label>
+                    <textarea name="event_description" required>{{data.event_description}}</textarea>
+                </div>
+                <div class="formitem">
+                    <label>Etkinlik Mekanı</label>
+                    <input type="text" name="event_place" value="{{data.event_place}}" required>
+                </div>
+                <div class="zaman">
+                    <div class="formitem">
+                        <label for="date">Etkinlik Tarihi</label>
+                        <br>
+                        <input type="date" id="date" name="event_time" value="{{data.event_time}}" required>
+                    </div>
+                    <div class="formitem">
+                        <label for="time">Etkinlik Başlangıç</label>
+                        <br>
+                        <input type="time" id="appt" name="event_start_time" value="{{data.event_start_time}}" required>
+                    </div>
+                    <div class="formitem">
+                        <label for="time">Etkinlik Bitiş</label>
+                        <br>
+                        <input type="time" id="appt" name="event_finish_time" value="{{data.event_finish_time}}">
+                    </div>
+                </div>
+                <div class="formitem">
+                    <label>Konuşmacılar</label>
+                    <input type="text" name="event_speakers" value="{{data.event_speakers}}" required>
+                </div>
+                <div class="formitem">
+                    <label>Etkinliği Düzenleyen Bölüm(ler)</label>
+                    <select data-placeholder="-- Seçim Yapınız --" multiple class="chosen-select" name="event_department">
+                        <option disabled value="none">--Seçim Yapın--</option>
+                        <option value="Bilgisayar Mühendisliği">Bilgisayar Mühendisliği</option>
+                        <option value="Makine Mühendisliği">Makine Mühendisliği</option>
+                        <option value="İnşaat Mühendisliği">İnşaat Mühendisliği</option>
+                        <option value="Elektrik Elektronik Mühendisliği">Elektrik Elektronik Mühendisliği</option>
+                        <option value="Endüstri Mühendisliği">Endüstri Mühendisliği</option>
+                        <option value="Orman Mühendisliği">Orman Mühendisliği</option>
+                    </select>
+                </div>
+                <div class="formitem">
+                <label>Etkinlik Afişi</label>
+                    <input class="form-control" type="file" aria-label="file example" name="event_photo" accept="image/*">
+                </div>
+                    <div class="btn">
+                        <a href="/etkinligiguncelle/{{data.id}}"><button class="sbtn">Etkinliği Güncelle</button></a><!-- button class=btn yapıldı kontrol edilsin -->
+                    </div>
+                </form>
+            </div>
+        </main>
+        <br>
+        <script>
+        $(".chosen-select").chosen({
+        no_results_text: "Oops, nothing found!"
+        });
+    </script>
+{% endblock maincontainer %}

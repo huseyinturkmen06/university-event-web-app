@@ -1,0 +1,46 @@
+{% extends "headeradmin.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/forms.css')}}">
+<link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/scroll.css')}}">
+{% endblock head %}
+
+{% block maincontainer %}
+
+<main class="container">
+        <!-- Sayfa Başlığı -->
+        <div class="formheader">
+            <h1>Firma Ekle</h1>
+        </div>
+
+        <!-- Etkinlik Oluşturma Formu -->
+        <div class="formbody">
+            <form action="https://ktu-etkinlik.herokuapp.com/firmaekle" method="POST" enctype="multipart/form-data">
+                <div class="formitem">
+                  <label>Firma Adı</label>
+                  <input type="text" name="company_name" required>
+                </div>
+                <div class="formitem">
+                    <label>Firma Açıklaması</label>
+                    <textarea name="company_description" required></textarea>
+                </div>
+                <div class="formitem">
+                    <label>Firma Adresi</label>
+                    <input type="text" name="company_address" required>
+                </div>
+                <div class="formitem">
+                    <label>Firma Yetkili Kişileri</label>
+                    <input type="text" name="company_authorized_person" required>
+                </div>
+                <div class="formitem">
+                    <label>Firma Resmi</label>
+                    <input type="file" accept="image/*" name="company_photo" required>
+                </div>
+                <div class="btn">
+                    <button class="sbtn" type="submit">Firma Ekle</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+{% endblock maincontainer %}

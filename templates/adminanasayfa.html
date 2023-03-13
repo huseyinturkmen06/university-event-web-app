@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/header.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/scroll.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/homestyle.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/showpacstyle.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>KTÜ Etkinlik Sistemi</title>
+    {% block head %}
+    
+    {% endblock head %}
+</head>
+<body>
+    <!-- wrapper start -->
+    <div class="wrapper">
+      <!-- header menu start -->
+      <div class="header">
+        <div class="header-menu">
+          <div class="title">
+            <!-- KTÜ <span>Etkinlik</span> -->
+          <a href="/adminanasayfa"><img src="{{ url_for('static',filename='/../assets/images/logo.png')}}" alt="logo" class="logo"></a>
+          </div>
+          <div class="sidebar-btn">
+            <i class="fas fa-bars"></i>
+          </div>
+          <div class="search-container">
+            <form action="/adminara" method="POST">
+              <input type="text" placeholder="Ara..." name="search">
+              <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+              <button type="button" onclick="location.href='/cikisyapadmin'"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- header menu end -->
+ <!-- sidebar start -->
+      <div class="sidebar">
+        <div class="sidebar-menu">
+          <center class="profile">
+            <img src="{{ url_for('static',filename='/../assets/images/logo2.png')}}" alt="bölüm logosu">
+            <p>{{session["admin_major"]}}</p>
+          </center>
+          <li class="item">
+            <a href="/adminanasayfa" class="menu-btn">
+              <i class="fa-solid fa-house"></i><span>Anasayfa</span> 
+            </a>
+          </li>
+          <li class="item" id="etkinlik">
+            <a href="#etkinlik" class="menu-btn">
+              <i class="fa-solid fa-chalkboard-user"></i><span>Etkinlik<i class="fas fa-angle-right drop-down"></i></span>
+            </a>
+            <div class="sub-menu">
+                <a href="/etkinlikolustur"></i><span>Etkinlik Oluştur</span></a>
+                <a href="/etkinliklerigoruntuleadmin"></i><span>Etkinlikleri Görüntüle</span></a>
+            </div>
+          </li>
+          <li class="item" id="firma">
+            <a href="#firma" class="menu-btn">
+              <i class="fa-solid fa-building-user"></i><span>Firmalar<i class="fas fa-angle-right drop-down"></i></span>
+            </a>
+            <div class="sub-menu">
+                <a href="/firmaekle"></i><span>Firma Ekle</span></a>
+                <a href="/firmalarigoruntule"></i><span>Firma Düzenle</span></a>
+            </div>
+          </li>
+          <li class="item">
+            <a href="/mesajlar" class="menu-btn">
+              <i class="fa-solid fa-envelope-open-text"></i><span>Mesajlar</span> 
+            </a>
+          </li>
+        </div>
+      </div>
+      <!-- sidebar end -->
+      <!-- main container start -->
+    <div class="main-container">
+      <!--- VİDEO --->
+      <!---
+        <section class="home" id="home">
+
+        <div class="content">
+            <h3>GELECEĞİNE FARK KAT<h3>
+                    <p>Kariyerine emin adımlarla yürü</p>
+                    <a href="#events" class="btn">Etkinlikler</a>
+        </div>
+
+
+        <div class="video-container">
+            <video src="{{ url_for('static',filename='/../assets/images/vid-10.mp4')}}" id="video-slider" loop autoplay muted></video>
+
+
+
+        </div>
+
+    </section>--->
+
+    <!-- home section ends -->
+
+
+
+
+    <!-- events section starts  -->
+
+    <section class="events" id="events">
+
+        <h1 class="heading">
+            <span>e</span>
+            <span>t</span>
+            <span>k</span>
+            <span>i</span>
+            <span>n</span>
+            <span>l</span>
+            <span>i</span>
+            <span>k</span>
+            <span>l</span>
+            <span>e</span>
+            <span>r</span>
+        </h1>
+
+        <div class="box-container">
+
+            {% for d in etkinlikler %}
+            <div class="box">
+                <img src="{{ url_for('static',filename='/../assets/images/uploads/' + d.event_photo)}}" alt="{{d.event_photo}}">
+                <div class="content">
+                    <h3><i class="far fa-clock"></i> {{d.event_name}}</h3>
+                    <p>{{d.event_time}}<p/>
+                    <a href="/etkinlikdetayadmin/{{d.id}}" class="btn">Etkinliği Görüntüle</a>
+                </div>
+            </div>
+            {% endfor %}
+
+            
+
+    </section>
+
+    <!-- events section ends -->
+    <!-- <section class="packbutton" id="packbutton">  -->
+
+    <div class="content">
+
+        <a href="/etkinliklerigoruntuleadmin" class="btn">Tüm Etkinlikler</a>
+    </div>
+
+
+
+    <!-- companies section starts  -->
+
+    <section class="companies" id="companies">
+
+        <h1 class="heading">
+            <span>Ş</span>
+            <span>i</span>
+            <span>r</span>
+            <span>k</span>
+            <span>e</span>
+            <span>t</span>
+            <span>l</span>
+            <span>e</span>
+            <span>r</span>
+        </h1>
+
+        <div class="box-container">
+
+            {% for f in firmalar %}
+            <div class="box">
+                <img src="{{ url_for('static',filename='/../assets/images/uploads/' + f.company_photo)}}" alt="{{f.company_photo}}">
+                <div class="content">
+                    <h3>{{f.company_name}}</h3>
+                    <!--<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>-->
+                    <a href="/firmadetayadmin/{{f.company_id}}" class="btn">İncele</a>
+                </div>
+            </div>
+            {% endfor %}
+
+
+
+    </section>
+    <!-- companies section ends -->
+    <div class="content">
+
+        <a href="/firmalarigoruntule" class="btn">Tüm Şirketler</a>
+    </div>
+
+
+    <section></section>
+
+  
+
+
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+   
+    <script src="{{ url_for('static',filename='/../assets/js/script.js')}}"></script>
+
+      </div>
+      <!-- main container end {% include "footer.html" %}-->
+    </div>
+    <!-- wrapper end -->
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $(".sidebar-btn").click(function(){
+          $(".wrapper").toggleClass("collapse");
+        });
+        $('.menu-btn').click(function(){
+                $(this).next('.sub-menu').slideToggle();
+                $(this).find('.drop-down').toggleClass('rotate');
+        });
+      });
+    </script>
+</body>
+</html>

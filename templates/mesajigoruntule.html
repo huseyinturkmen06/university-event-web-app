@@ -1,0 +1,38 @@
+{% extends "headeradmin.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/showpacstyle.css')}}">
+<link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/homestyle.css')}}">
+{% endblock head %}
+
+
+
+{% block maincontainer %}
+ <section class="showpac">
+        <div class="content">
+
+        <div class="content-header">
+                <h2>{{data.topic}}</h2>
+            </div>
+            <div class="content-body">
+                <h3><i class="fa-solid fa-hashtag"></i> Okul Numarası:</h3>
+                <p>{{data.student_id}}</p>
+                <hr>
+                <h3><i class="fa-solid fa-address-book"></i> Ad Soyad:</h3>
+                <p>{{data.name}} {{data.surname}}</p>
+                <hr>
+                <h3><i class="fa-solid fa-at"></i> E-Posta Adresi:</h3>
+                <p>{{data.email}}</p>
+                <hr>
+                <h3><i class="fa-solid fa-phone"></i> Telefon Numarası:</h3>
+                <p>{{data.phone_number}}</p>
+                <hr>
+                <h3><i class="fa-solid fa-building-user"></i> Bölüm:</h3>
+                <p>{{data.major}}</p>
+                <hr>
+                <h3><i class="fa-solid fa-message"></i> Mesaj</h3>
+                <p>{{data.message}}</p>
+                </div>
+        </div>
+    </section>
+{% endblock maincontainer %}

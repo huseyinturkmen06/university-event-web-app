@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+/* HEADER MENU */
+.wrapper .header {
+    z-index: l;
+    background-color: rgb(229 229 255);
+    position: fixed;
+    width: calc(100% - 0%);
+    height: 70px;
+    display: flex;
+    top: 0;
+    border: 1px solid #9f9fd4;
+}
+
+.wrapper .header .header-menu {
+    width: calc(100% - 0%);
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* Header Menu Başlık */
+.wrapper .header .header-menu .title .logo{
+    /* color: #fff;
+    font-size: 25px;
+    font-weight: 900; */
+    width: 70%;
+    height: 70%;
+    margin-top: 15px;
+}
+
+/* Sidebar Menü İkonu */
+.wrapper .header .header-menu .sidebar-btn {
+    color: #003B64;
+    position: absolute;
+    margin-left: 240px;
+    font-size: 22px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: 0.3s;
+    transition-property: color;
+}
+
+.wrapper .header .header-menu .sidebar-btn:hover {
+    color: #8f8ff5;
+}
+
+/* Header Menü Sağ İkonlar */
+.wrapper .header .header-menu .search-container {
+    display: flex;
+}
+
+.wrapper .header .header-menu .search-container input, button {
+    color: #ccccff;
+    /* display: block; */
+    font-size: 18px;
+    line-height: 35px;
+    text-align: center;
+    border: 1px solid #8f8ff5;
+    transition: 0.3s;
+    transition-property: background, color;
+}
+
+.wrapper .header .header-menu .search-container button {
+    color: #ccccff;
+    background-color: #fff;
+    margin: 0 10px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+}
+
+.wrapper .header .header-menu .search-container button:hover {
+    background-color: #8f8ff5;
+    color: #fff;
+}
+
+/* SIDEBAR */
+.wrapper .sidebar {
+    z-index: l;
+    background-color: rgb(229 229 255);
+    position: fixed;
+    top: 70px;
+    width: 280px;
+    height: calc(100% - 9%);
+    transition: 0.3s;
+    transition-property: width;
+    overflow: auto;
+    border: 1px solid #9f9fd4;
+    overflow-x: hidden;
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
+}
+
+.wrapper .sidebar::-webkit-scrollbar {
+    width: 1rem;
+}
+
+.wrapper .sidebar::-webkit-scrollbar-track {
+    background: #ccccff;
+}
+
+.wrapper .sidebar::-webkit-scrollbar-thumb {
+    background: #7267CB;
+    border-radius: 5rem;
+}
+
+.wrapper .sidebar .sidebar-menu {
+    overflow: hidden;
+}
+
+/* sidebar profil resmi özellikleri */
+.wrapper .sidebar .sidebar-menu .profile {
+    background-color: #c5c5f6;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #9f9fd4;
+}
+
+.wrapper .sidebar .sidebar-menu .profile img {
+    margin: 20px 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+/* sidebar kullanıcı adı özellikleri */
+.wrapper .sidebar .sidebar-menu .profile p {
+    color: #423189;
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+/* sidebar menü */
+.wrapper .sidebar .sidebar-menu .item {
+    width: 280px;
+    overflow: hidden;
+}
+
+.wrapper .sidebar .sidebar-menu .item .menu-btn {
+    display: block;
+    color: #003B64;
+    font-size: 20px;
+    position: relative;
+    padding: 14px 20px;
+    transition: 0.3s;
+    transition-property: color;
+}
+
+.wrapper .sidebar .sidebar-menu .item .menu-btn:hover {
+    color: #8f8ff8;
+}
+
+.wrapper .sidebar .sidebar-menu .item .menu-btn i {
+    margin-right: 20px;
+}
+
+.wrapper .sidebar .sidebar-menu .item .menu-btn .drop-down {
+    right: 0;
+    font-size: 20px;
+    margin-top: 3px;
+    position: absolute;
+    transition: 0.3s;
+}
+
+.rotate {
+    transform: rotate(90deg);
+}
+
+.wrapper .sidebar .sidebar-menu .item .sub-menu {
+    background-color: #c5c5f6;;
+    overflow: hidden;
+    max-height: 0;
+    transition: 0.3s;
+    display: none;
+    transition-property: background, max-height;
+}
+
+.wrapper .sidebar .sidebar-menu .item .sub-menu a {
+    display: block;
+    position: relative;
+    color: #003B64;
+    font-size: 16px;
+    white-space: nowrap;
+    padding: 20px;
+    border-bottom: 1px solid #ccf;
+    transition: 0.3s;
+    transition-property: background;
+}
+
+.wrapper .sidebar .sidebar-menu .item .sub-menu a:hover {
+    background-color: #8f8ff5;
+}
+
+.wrapper .sidebar .sidebar-menu .item .sub-menu i {
+    padding-right: 20px;
+    font-size: 10px;
+}
+
+.wrapper .sidebar .sidebar-menu .item:target .sub-menu {
+    max-height: 500px;
+}
+
+/* Sidebar footer */
+.wrapper .sidebar .footer {
+    width: 280px;
+    height: 70px;  
+    background-color: #c5c5f6;  
+    border: 1px solid #423189;
+    box-shadow: 0px -2px 8px 3px #423189;
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.wrapper .sidebar .footer .footer-btn{
+    align-items: center;
+    color: #003B64;
+    font-size: 20px;
+    position: relative;
+    padding: 25px 20px;
+    transition: 0.3s;
+}
+
+.wrapper .sidebar .footer .footer-btn:hover {
+    color: #b2b2f3;
+}
+
+.wrapper .sidebar .footer .footer-btn i {
+    padding: 10px;
+    margin: 10px;
+    font-size: 25px;
+}
+
+/* MAIN CONTAINER */
+.wrapper .main-container {
+    width: (100% - 280px);
+    margin-top: 70px;
+    margin-left: 280px;
+    padding: 15px;
+    background-size: cover;
+    height: 100vh;
+    transition: 0.3s;
+}
+
+/* sidebar bar ikon jquery */
+.wrapper.collapse .sidebar {
+    width: 0;
+}
+
+/* menü kapandığında main container kayma */
+.wrapper.collapse .main-container {
+    width: (100% - 70px);
+    margin-left: 0;
+}

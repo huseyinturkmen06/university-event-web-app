@@ -1,0 +1,42 @@
+{% extends "headeradmin.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/homestyle.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/certificateStyle.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/warning.css')}}">
+{% endblock head %}
+
+
+{% block maincontainer %}
+
+<section class="certificate" id="certificate">
+        <h1 class="heading">
+            <span>m</span>
+            <span>e</span>
+            <span>s</span>
+            <span>a</span>
+            <span>j</span>
+            <span>l</span>
+            <span>a</span>
+            <span>r</span>
+        </h1>
+        {% if data %}
+        <div class="box-container"> 
+            {% for d in data %}
+            <div class="box">              
+                <div class="content">                
+                    <h3><i class="fa-solid fa-paper-plane"></i> Konu: {{d.topic}}</h3><br>
+                    <hr><p>Gönderen Kişinin Adı Soyadı: {{d.name}} {{d.surname}}</p>  
+                    <hr><p>Gönderen Kişinin Bölümü: {{d.major}}</p>  
+                    <hr><p>Gönderen Kişinin Okul Numarası: {{d.student_id}}</p>  
+                    <a href="/mesajigoruntule/{{d.id}}" class="cbtn">Mesajı Görüntüle</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="not">
+            <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mesajınız Bulunmamaktadır</h1>
+        </div>
+        {% endif %}
+{% endblock maincontainer %}

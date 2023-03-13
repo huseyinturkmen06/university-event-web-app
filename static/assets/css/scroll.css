@@ -1,0 +1,43 @@
+
+
+/* Yan kaydırma çubuğu */
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+    width: 1rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: #ccccff;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #7267CB;
+    border-radius: 5rem;
+}
+
+/* media queries  */
+
+@media (max-width:1200px){
+
+  html{
+    font-size: 55%;
+  }
+
+}
+
+
+
+
+
+@media (max-width:450px){
+
+    html{
+      font-size: 50%;
+    }
+}

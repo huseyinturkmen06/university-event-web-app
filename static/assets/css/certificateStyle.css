@@ -1,0 +1,48 @@
+.certificate .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap:3rem;
+  }
+  
+  .certificate .box-container .box{
+    flex:10 10 40rem;
+    border-radius: .5rem;
+    overflow: hidden;
+    box-shadow: 0 1rem 2rem rgba(66,49,137);
+  
+
+  }
+  
+ 
+  .certificate .box-container .box .content{
+    padding:2rem;
+  }
+  
+  .certificate .box-container .box .content h3{
+    font-size:2rem;
+    color:rgb(66,49,137);
+  }
+  
+  .certificate .box-container .box .content p{
+    font-size: 14.2px;
+  }
+  
+ 
+
+  .cbtn{
+    display: inline-block;
+    margin-top: 1rem;
+    background:#7267CB;
+    color:#fff;
+    padding:.8rem 3rem;
+    border:.2rem solid #B8B5FF;
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin-left: 29%;
+    margin-right:10%;
+  }
+  
+  .cbtn:hover{
+    background:rgba(66,49,137);
+    color:#ccccff;
+  }

@@ -1,0 +1,41 @@
+{% extends "headeradmin.html" %}
+
+{% block maincontainer %}
+
+<main class="container">
+        <!-- Sayfa Başlığı -->
+        <div class="formheader">
+            <h1>Firma Güncelle</h1>
+        </div>
+
+        <!-- Etkinlik Oluşturma Formu -->
+        <div class="formbody">
+            <form action="/firmaguncelle/{{data.company_id}}" method="POST" enctype="multipart/form-data">
+                <div class="formitem">
+                  <label>Firma Adı</label>
+                  <input type="text" name="company_name" value="{{data.company_name}}" required>
+                </div>
+                <div class="formitem">
+                    <label>Firma Açıklaması</label>
+                    <textarea name="company_description" required>{{data.company_description}}</textarea>
+                </div>
+                <div class="formitem">
+                    <label>Firma Adresi</label>
+                    <input type="text" name="company_address" value="{{data.company_address}}" required>
+                </div>
+                <div class="formitem">
+                    <label>Firma Yetkili Kişileri</label>
+                    <input type="text" name="company_authorized_person" value="{{data.company_authorized_person}}" required>
+                </div>
+                 <div class="formitem">
+                <label>Etkinlik Afişi</label>
+                    <input class="form-control" type="file" aria-label="file example" name="company_photo" accept="image/*">
+                </div>
+                <div class="btn">
+                    <button class="sbtn" type="submit">Firma Güncelle</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+{% endblock maincontainer %}

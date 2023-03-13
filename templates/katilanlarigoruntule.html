@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/scroll.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/profile.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/header.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <title>KTÜ Etkinlik Sistemi</title>
+</head>
+<body>
+<div class="wrapper">
+      <!-- header menu start -->
+      <div class="header">
+        <div class="header-menu">
+          <div class="title">
+            <!-- KTÜ <span>Etkinlik</span> -->
+          <a href="/adminanasayfa"><img src="{{ url_for('static',filename='/../assets/images/logo.png')}}" alt="logo" class="logo"></a>
+          </div>
+          <div class="sidebar-btn">
+            <i class="fas fa-bars"></i>
+          </div>
+          <div class="search-container">
+            <form action="/adminara" method="POST">
+              <input type="text" placeholder="Ara..." name="search">
+              <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+              <button type="button" onclick="location.href='/cikisyap'"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- header menu end -->
+      <!-- sidebar start -->
+      <div class="sidebar">
+        <div class="sidebar-menu">
+          <center class="profile">
+            <img src="{{ url_for('static',filename='/../assets/images/logo2.png')}}" alt="bölüm logosu">
+            <p>{{session["admin_major"]}}</p>
+          </center>
+          <li class="item">
+            <a href="/adminanasayfa" class="menu-btn">
+              <i class="fa-solid fa-house"></i><span>Ana Sayfa</span>
+            </a>
+          </li>
+          <li class="item" id="etkinlik">
+            <a href="#etkinlik" class="menu-btn">
+              <i class="fa-solid fa-chalkboard-user"></i><span>Etkinlik<i class="fas fa-angle-right drop-down"></i></span>
+            </a>
+            <div class="sub-menu">
+                <a href="/etkinlikolustur"></i><span>Etkinlik Oluştur</span></a>
+                <a href="/etkinliklerigoruntuleadmin"></i><span>Etkinlikleri Görüntüle</span></a>
+            </div>
+          </li>
+          <li class="item" id="firma">
+            <a href="#firma" class="menu-btn">
+              <i class="fa-solid fa-building-user"></i><span>Firmalar<i class="fas fa-angle-right drop-down"></i></span>
+            </a>
+            <div class="sub-menu">
+                <a href="/firmaekle"></i><span>Firma Ekle</span></a>
+                <a href="/firmalarigoruntule"></i><span>Firmaları Görüntüle</span></a>
+            </div>
+            <div class="sub-menu">
+                <a href="/firmaekle"></i><span>Mesajları Görüntüle</span></a>
+            </div>
+          </li>
+          <li class="item">
+            <a href="/mesajlar" class="menu-btn">
+              <i class="fa-solid fa-envelope-open-text"></i><span>Mesajlar</span>
+            </a>
+          </li>
+        </div>
+      </div>
+      <!-- sidebar end -->
+      <!-- main container start -->
+      <div class="main-container">
+        <div class="container">
+      <!-- Profil Kutusu -->
+<!-- Etkinlikler Kutusu -->
+        <div class="container-box">
+            <div class="activity-box">
+                <!-- Etkinlik kutusu header -->
+                <div class="activity-header">
+                    Etkinliğe Katılanlar                  
+                </div>
+              <!-- Etkinlik kutusu body -->
+              <div id="dvContents">
+              <table>
+                <thead>
+                  <tr class="thead">
+                    <th> Öğrenci Numarası</th>
+                    <th>Öğrenci Adı</th>
+                    <th>Öğrencinin Bölümü</th>
+                    <th>Öğrencinin Sınıfı</th>
+                  </tr>
+                </thead>
+
+                {% for d in data %}
+                <tr>
+                    <th><a href="/profilincele/{{d.student_id}}">{{d.student_id}}</a></th>
+                    <th>{{d.name}} {{d.surname}}</th>
+                    <th>{{d.major}}</th>
+                    <th>{{d.clas}}</th>
+                  </tr>
+                {% endfor %}               
+
+              </table>
+              </div>
+            </div>
+          </div>
+            <div class="return-btn">
+              <a onclick="history.back()" class="button">
+                <span>Geri Dön</span> 
+              </a>
+            </div>
+            <div class="print-btn">
+              <a onclick="PrintTable();" class="button">
+                <span>Yazdır</span> 
+              </a>
+            </div>
+      <!-- main container end -->
+    </div>
+    <!-- wrapper end -->
+     <script type="text/javascript">
+      $(document).ready(function(){
+        $(".sidebar-btn").click(function(){
+          $(".wrapper").toggleClass("collapse");
+        });
+        $('.menu-btn').click(function(){
+                $(this).next('.sub-menu').slideToggle();
+                $(this).find('.drop-down').toggleClass('rotate');
+        });
+      });
+    </script>
+
+
+<style id="table_style" type="text/css">
+    body
+    {
+      font-family: 'Nunito', sans-serif;
+      font-size: 15px;
+      
+    }
+    table
+    {
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+        color: rgba(0, 0, 0, 0.652);
+    }
+    table .thead {
+      background-color: #8f8ff5;
+      font-size: 18px;
+      color: #fff;
+    }
+    table th a {
+      text-decoration: none;
+      color: rgba(0, 0, 0, 0.652);
+    }
+    table th, table td
+    {
+      padding: 8px;
+      text-align: left;
+    }
+    table tr:nth-child(even) {
+      background-color: #ccf;
+    }
+</style>
+
+
+<script type="text/javascript">
+    function PrintTable() {
+        var printWindow = window.open('', '', 'height=800,width=800');
+        printWindow.document.write('<html><head><title>Yazdır</title>');
+ 
+        //Print the Table CSS.
+        var table_style = document.getElementById("table_style").innerHTML;
+        printWindow.document.write('<style type = "text/css">');
+        printWindow.document.write(table_style);
+        printWindow.document.write('</style>');
+        printWindow.document.write('</head>');
+ 
+        //Print the DIV contents i.e. the HTML Table.
+        printWindow.document.write('<body>');
+        var divContents = document.getElementById("dvContents").innerHTML;
+        printWindow.document.write(divContents);
+        printWindow.document.write('</body>');
+ 
+        printWindow.document.write('</html>');
+        printWindow.document.close();
+        printWindow.print();
+    }
+</script>
+
+
+</body>
+</html>

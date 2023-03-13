@@ -1,0 +1,33 @@
+.not h1 {
+
+
+    font-size: 50px;
+
+    position: absolute;
+
+    left: 30%;
+
+    top: 40% 
+
+}
+
+
+
+.found .btn {
+    display: inline-block;
+    margin-top: 1rem;
+    background: #9966ff;
+    padding: 20px;
+    font-size: 2rem;
+    text-decoration: none;
+    color: #fff;
+    border:.2rem solid #B8B5FF;
+    border-radius: 10px;
+
+  margin-left: 42%;
+  margin-top:30%;
+}
+.found .btn:hover {
+    background:rgba(66,49,137);
+  color:#ccccff;
+}

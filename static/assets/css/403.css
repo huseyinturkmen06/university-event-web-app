@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+}
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Montserrat";
+    color: rgb(56,56,56);
+}
+.wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.wrapper h1 {
+    font-size: 3.5rem;
+    margin-top: 20px;
+    
+}
+.wrapper .message {
+    font-size: 1.5rem;
+    padding: 20px;
+    width: 60%;
+    text-align: center;
+}
+.wrapper  i{
+    font-size: 1.2rem;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+}
+.wrapper  p{
+    font-size: 1.2rem;
+    padding: 20px;
+    width: 70%;
+    text-align: center;
+}
+.wrapper .btn {
+    background: #9966ff;
+    padding: 20px;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: #fff;
+    border:.2rem solid #B8B5FF;
+    border-radius: 20px;
+}
+.wrapper .btn:hover {
+    background:rgba(66,49,137);
+  color:#ccccff;
+}

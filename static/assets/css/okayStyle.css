@@ -1,0 +1,21 @@
+.obtn {
+    display: inline-block;
+    margin-top: 1rem;
+    background: #7267cb;
+    color: #fff;
+    padding: 0.8rem 3rem;
+    border: 0.5rem solid #b8b5ff;
+    cursor: pointer;
+    font-size: 2.7rem;
+    position: absolute;
+    top: 550px;
+    margin-left: 45%;
+   
+    
+    
+}
+
+.obtn:hover {
+    background: rgba(66, 49, 137);
+    color: #ccccff;
+}

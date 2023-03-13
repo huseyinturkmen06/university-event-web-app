@@ -1,0 +1,40 @@
+{% extends "headeradmin.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/showpacstyle.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/homestyle.css')}}">
+
+{% endblock head %}
+
+
+{% block maincontainer %}
+<section class="events" id="events">
+
+        <h1 class="heading">
+            <span>e</span>
+            <span>t</span>
+            <span>k</span>
+            <span>i</span>
+            <span>n</span>
+            <span>l</span>
+            <span>i</span>
+            <span>k</span>
+            <span>l</span>
+            <span>e</span>
+            <span>r</span>
+        </h1>
+
+        <div class="box-container">
+    
+        {% for d in data %}
+
+        <div class="box">
+                <img src="{{ url_for('static',filename='/../assets/images/uploads/' + d.event_photo)}}" alt="{{d.event_photo}}">
+                <div class="content">
+                    <h3><i class="fas fa-briefcase"></i> {{d.event_name}}</h3>
+                    <a href="/etkinlikdetayadmin/{{d.id}}" class="btn">Etkinliği Görüntüle</a>
+                </div>
+            </div>
+        {% endfor %}    
+    </section>
+{% endblock maincontainer %}

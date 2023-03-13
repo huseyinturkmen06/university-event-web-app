@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yetkisiz Giriş</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/403.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+<body>
+   <img src="{{ url_for('static',filename='/../assets/images/403-88.png')}}" alt="403">
+    
+    <div class="wrapper">
+        <h1>Yetki Reddedildi.</h1>
+       <p class="message">
+        <i class='fas fa-user-lock' style='font-size:24px'> Seni içeriye alamayız.</i>
+    </p>
+        <p>Bunu beklemiyor muydun?</p>
+   
+       <a onclick="history.back()" class="btn">Geri Dön</a>
+       
+    </div>
+</body>
+</html>

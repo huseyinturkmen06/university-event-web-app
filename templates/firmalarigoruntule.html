@@ -1,0 +1,38 @@
+{% extends "headeradmin.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/showpac.css')}}">
+<link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/homestyle.css')}}">
+{% endblock head %}
+
+
+{% block maincontainer %}
+<section class="events" id="events">
+
+        <h1 class="heading">
+            <span>f</span>
+            <span>i</span>
+            <span>r</span>
+            <span>m</span>
+            <span>a</span>
+            <span>l</span>
+            <span>a</span>
+            <span>r</span>
+        </h1>
+
+        <div class="box-container">
+    
+        {% for d in data %}
+
+        <div class="box">
+                <img src="{{ url_for('static',filename='/../assets/images/uploads/' + d.company_photo)}}" alt="{{d.company_photo}}">
+                <div class="content">
+                    <h3><i class="far fa-clock"></i>{{d.company_name}}</h3>
+                    <a href="/firmadetayadmin/{{d.company_id}}" class="btn">Detay Görüntüle</a>
+                </div>
+            </div>
+        {% endfor %}
+       
+    
+    </section>
+{% endblock maincontainer %}

@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+
+
+* {
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  margin: auto;
+  padding: 20px;
+  width: 80%;
+}
+
+.container .container-box {
+  border: 2px groove #ccf;
+  border-radius: 6px;
+  margin: 60px;
+  background-color: #fffffc;
+  box-shadow: 0 1rem 2rem rgba(66,49,137);
+}
+
+.container .profile-box {
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.container .profile-box .profile-img {
+  float: left;
+  padding: 10px;
+  margin: 15px;
+  display: flex;
+  align-items: center;
+  width: 35%;
+}
+
+.container .profile-box .profile-img img {
+    height: 200px;
+    width: 200px;
+    text-align: center;
+}
+
+.container .profile-box .info-box {
+  float: left;
+  display: flex;
+  flex-grow: 1
+}
+
+.container .profile-box .info-box .infotable {
+  border-spacing: 15px;
+  width: 100%;
+  font-size: 20px;
+}
+
+.container .container-box .header {
+  font-size: 30px;
+  font-weight: bolder;
+  text-decoration: underline;
+  color: #8f8ff5;
+  text-align: left;
+}
+
+.container .profile-box .info-box .infotable .colspan-header {
+  font-weight: bold;
+}
+
+.container .profile-box .profile-btn {
+  display: flex;
+  align-self: flex-end;
+}
+
+.container .profile-box .profile-btn .button {
+    background-color: #ccccff;
+    color: black;
+    border-radius: 8px;
+    padding: 7px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    transition-duration: 0.4s;
+}
+
+.container .profile-box .profile-btn .button:hover {
+    background-color: #423189;
+    color: #F8F9FA;
+}
+
+.container .profile-box .profile-btn .settingsicon {
+    height: 18px;
+    width: 18px;
+}
+
+.container .return-btn {
+  background-color: #423189;
+  height: 50px;
+  margin: 20px 80px 20px;
+  padding: 10px;
+  width: 120px;
+  text-align: center;
+  float: right;
+  border: 1px solid #423189;
+  border-radius: 8px;
+}
+
+.container .return-btn:hover{
+  background-color: #ccf;
+}
+
+.container .return-btn .button {
+  color: #fff;
+  text-decoration: none;
+  font-size: 21px;
+}
+
+.container .return-btn .button:hover{
+  color: #423189;
+}
+
+.container .print-btn {
+  background-color: #423189;
+  height: 50px;
+  margin: 20px 80px 20px;
+  padding: 10px;
+  width: 120px;
+  text-align: center;
+  float: left;
+  border: 1px solid #423189;
+  border-radius: 8px;
+}
+
+.container .print-btn:hover{
+  background-color: #ccf;
+}
+
+.container .print-btn .button {
+  color: #fff;
+  text-decoration: none;
+  font-size: 21px;
+}
+
+.container .print-btn .button:hover{
+  color: #423189;
+}
+
+.container .container-box .activity-box {
+  margin: 20px;
+  padding: 10px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 500px;
+  overflow-x: hidden;
+  scroll-padding-top: 7rem;
+  scroll-behavior: smooth;
+}
+
+.container .container-box .activity-box::-webkit-scrollbar {
+  width: 10px;
+  height: 1px;
+}
+
+.container .container-box .activity-box::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+.container .container-box .activity-box::-webkit-scrollbar-thumb {
+  background: #423189;
+  border-radius: 5rem;
+}
+
+.container .container-box .activity-box .activity-header {
+  height: 58px;
+  color: #423189;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.container .container-box .activity-box table {
+  width: 100%;
+  font-size: 15px;
+  border-collapse: collapse;
+  color: rgba(0, 0, 0, 0.652);
+}
+
+.container .container-box .activity-box .thead {
+  background-color: #8f8ff5 !important;
+  font-size: 18px;
+  color: #fff;
+}
+
+.container .container-box .activity-box a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.652);
+}
+
+.container .container-box .activity-box th,td {
+  padding: 8px;
+  text-align: left;
+  /* border-bottom: 1px solid #ddd; */
+}
+
+.container .container-box .activity-box tr:hover {
+  color: #afa5d6;
+}
+
+.container .container-box .activity-box a:hover {
+  color: #afa5d6;
+}
+
+.container .container-box .activity-box tr:nth-child(even) {
+  background-color: #ccf;
+}

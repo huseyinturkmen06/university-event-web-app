@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+
+
+* {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+::selection {
+    color: white;
+    background: #423189;
+}
+
+.container {
+    margin: auto;
+    padding: 20px;
+    width: 70%;
+}
+
+.container .container-box {
+    border: 2px groove #ccf;
+    border-radius: 6px;
+    margin: 60px;
+    background-color: #fffffc;
+    box-shadow: 0 1rem 2rem rgba(66, 49, 137);
+}
+
+.container .container-box .activity-box {
+    margin: 20px;
+    padding: 10px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 557px;
+    overflow-x: hidden;
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
+}
+
+.container .container-box .activity-box::-webkit-scrollbar {
+    width: 10px;
+    height: 1px;
+}
+
+.container .container-box .activity-box::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+.container .container-box .activity-box::-webkit-scrollbar-thumb {
+    background: #423189;
+    border-radius: 5rem;
+}
+
+.container .container-box .activity-box .activity-header {
+    height: 58px;
+    color: #423189;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.container .container-box .activity-box table {
+    width: 100%;
+    font-size: 15px;
+    border-collapse: collapse;
+    color: rgba(0, 0, 0, 0.652);
+}
+
+.container .container-box .activity-box .thead {
+    background-color: #8f8ff5 !important;
+    font-size: 18px;
+    color: #fff;
+}
+
+.container .container-box .activity-box a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.652);
+}
+
+.container .container-box .activity-box th,
+td {
+    padding: 8px;
+    text-align: left;
+}
+
+.container .container-box .activity-box tr:hover {
+    color: #afa5d6;
+}
+
+.container .container-box .activity-box a:hover {
+    color: #afa5d6;
+}
+
+.container .container-box .activity-box tr:nth-child(even) {
+    background-color: #ccf;
+}

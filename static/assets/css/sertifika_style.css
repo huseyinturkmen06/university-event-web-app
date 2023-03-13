@@ -1,0 +1,298 @@
+/* gerekirse px yerine % li yap tekrardan, hizlanmadı çünkü */
+
+
+
+#container img{
+    max-width: 100%;
+    height:auto ;
+    
+}
+
+#photo_container{
+    /* position:absolute;
+    left:43%;
+    right:43;
+    top:50%;
+    background-color:#057fd0; */
+    width: 8%;
+    position:absolute;
+    display:flex;
+    justify-content: center;
+    background-color: red;
+    top:81%;
+    /* border-style: solid;
+    border-width: 1px;
+    border-color:#c1ae00; */
+}
+
+
+
+/* #left_container p{
+    position:absolute;
+    left:15%;      
+    display:flex;
+    justify-content:left;
+} */
+
+#sol_alt_yazı{
+    position:absolute;
+    left:15%;   
+    top:78%;    
+    display:flex;
+    justify-content:left;
+}
+
+
+#sag_alt_yazı{
+    position:absolute;
+    right:15%;   
+    top:78%;    
+    display:flex;
+    justify-content:left;
+}
+
+
+
+
+
+#left_container table{
+    position:absolute;
+    left:15%;  
+    top:85%;  
+    /* display:flex;
+    justify-content:left; */
+}
+
+
+
+#right_container table{
+    position:absolute;
+    right:15%;  
+    top:85%;  
+
+    /* right:15% */
+
+    /* display:flex;
+    justify-content:left; */
+}
+
+ #photo_container img{
+    /* position: absolute; */
+    max-width: 100%;
+    height:auto ;
+} 
+
+
+#container{
+    width: 70%;
+    position:relative;
+    display:flex;
+    margin: auto;
+    justify-content: center;
+    /* text align center vs display felex iken çalışmaz, bu yüzden bu kullanılır */   
+}
+
+#depatment_name{
+    /* absolute yaparsan parent dive göre hareket eder */
+    position:absolute;
+    top:12%;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    font-style: normal;
+    text-decoration: none;
+    font-family: "Copperplate Gothic Bold";
+    font-size: 28px;
+    line-height: 1.4;
+    letter-spacing: 0.1em;
+    /* text-transform: uppercase; */
+    line-height: 33px; 
+    text-align: center;
+    /* buradaki text align center yazıyı kendi içinde merkezlemek için, bunu kaldırma */
+    
+    
+}
+
+
+#name_surname{
+    /* absolute yaparsan parent dive göre hareket eder */
+    position:absolute;
+    bottom:32%;
+    
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+    font-style: normal;
+    text-decoration: none;
+    
+    font-family: "Copperplate Gothic Bold";
+    font-size: 24px;
+    line-height: 1.4;
+    letter-spacing: 0.1em;
+    /* text-transform: uppercase; */
+    line-height: 33px; 
+    
+    
+}
+
+#department_leader{
+    /* absolute yaparsan parent dive göre hareket eder */
+    position:absolute;
+    top:82%;
+    left:15%;
+    
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+    font-style: normal;
+    text-decoration: none;
+    
+    font-family: "Copperplate Gothic Bold";
+    font-size: 15px;
+    line-height: 1.4;
+    letter-spacing: 0.1em;
+    /* text-transform: uppercase; */
+    line-height: 33px; 
+    
+    
+}
+
+#department_leader_title{
+    /* absolute yaparsan parent dive göre hareket eder */
+    position:absolute;
+    top:79%;
+    left:15%;
+    
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+    font-style: normal;
+    text-decoration: none;
+    
+    font-family: "Copperplate Gothic Bold";
+    font-size: 15px;
+    line-height: 1.4;
+    letter-spacing: 0.1em;
+    /* text-transform: uppercase; */
+    line-height: 33px; 
+    
+    
+}
+
+
+#speaker{
+    /* absolute yaparsan parent dive göre hareket eder */
+    position:absolute;
+    top:82%;
+    right:15%;
+
+    
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+    font-style: normal;
+    text-decoration: none;
+    
+    font-family: "Copperplate Gothic Bold";
+    font-size: 15px;
+    line-height: 1.4;
+    letter-spacing: 0.1em;
+    /* text-transform: uppercase; */
+    line-height: 33px; 
+    
+    
+}
+
+
+#speaker_title{
+    /* absolute yaparsan parent dive göre hareket eder */
+    position:absolute;
+    top:79%;
+    right:15%;
+
+    
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+    font-style: normal;
+    text-decoration: none;
+    
+    font-family: "Copperplate Gothic Bold";
+    font-size: 15px;
+    line-height: 1.4;
+    letter-spacing: 0.1em;
+    /* text-transform: uppercase; */
+    line-height: 33px; 
+    
+    
+}
+
+
+#text{
+    /* absolute yaparsan parent dive göre hareket eder */
+    position:absolute;
+    top:66%;
+    left: 15%;
+    right: 15%;
+     
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+    font-style: normal;
+    text-decoration: none;
+    
+    font-family: "Calisto MT";
+    font-size: 15px;
+    line-height: 1.4;   /* satırlar arası boşluk */
+    /* letter-spacing: 0.1em; */
+    /* text-transform: uppercase; */
+    text-align: center;
+    /* buradaki text align center yazıyı kendi içinde merkezlemek için, bunu kaldırma */
+     
+    
+    
+}
+
+
+
+
+
+@media print{
+    /* yazdırırken container div */
+    body *:not(#container):not(#container *){
+        visibility: hidden;
+    }
+    #container{
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 95%;
+        transform: translate(-50%, -50%);
+        
+    }
+}
+
+
+
+
+.p_button {
+    box-shadow: 0px 1px 0px 0px #f0f7fa;
+	background:linear-gradient(to bottom, #8f8ff5 5%, #7e7ef0 100%);
+	background-color:#8f8ff5;
+	border-radius:6px;
+	border:1px solid #7e7ef0;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #8f8ff5;
+  }
+  
+  .p_button:hover {
+    background:linear-gradient(to bottom, #7e7ef0 5%, #8f8ff5 100%);
+	background-color:#019ad2;
+  }
+  
+  .p_button:active {
+    position:relative;
+	top:1px;
+  }
+

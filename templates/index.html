@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anasayfa</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/homestyle.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/scroll.css')}}">
+
+</head>
+
+<body>
+
+    
+    <section class="home" id="home">
+
+        <div class="content">
+            <h3>GELECEĞİNE FARK KAT<h3>
+                    <p>Kariyerine emin adımlarla yürü</p>
+                    <a href="#events" class="btn">Etkinlikler</a>
+        </div>
+
+
+        <div class="video-container">
+            <video src="{{ url_for('static',filename='/../assets/images/vid-10.mp4')}}" id="video-slider" loop autoplay muted></video>
+
+
+
+        </div>
+
+    </section>
+
+    <!-- home section ends -->
+
+
+
+
+    <!-- events section starts  -->
+
+    <section class="events" id="events">
+
+        <h1 class="heading">
+            <span>e</span>
+            <span>t</span>
+            <span>k</span>
+            <span>i</span>
+            <span>n</span>
+            <span>l</span>
+            <span>i</span>
+            <span>k</span>
+            <span>l</span>
+            <span>e</span>
+            <span>r</span>
+        </h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <img src="{{ url_for('static',filename='/../assets/images/1.jpg')}}" alt="">
+                <div class="content">
+                    <h3><i class="far fa-clock"></i> gelecek1 </h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+
+                    <a href="showpac.html" class="btn">Etkinliği Görüntüle</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="{{ url_for('static',filename='/../assets/images/2.jpg')}}" alt="">
+                <div class="content">
+                    <h3><i class="far fa-clock"></i> gelecek2 </h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+
+                    <a href="#" class="btn">Etkinliği Görüntüle</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="{{ url_for('static',filename='/../assets/images/3.jpg')}}" alt="">
+                <div class="content">
+                    <h3><i class="far fa-clock"></i> gelecek3 </h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+
+                    <a href="#" class="btn">Etkinliği Görüntüle</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="{{ url_for('static',filename='/../assets/images/4.jpg')}}" alt="">
+                <div class="content">
+                    <h3><i class="far fa-clock"></i> gelecek4 </h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+
+                    <a href="#" class="btn">Etkinliği Görüntüle</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="{{ url_for('static',filename='/../assets/images/5.jpg')}}" alt="">
+                <div class="content">
+                    <h3> <i class="far fa-clock"></i> gelecek5 </h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+
+                    <a href="#" class="btn">Etkinliği Görüntüle</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="{{ url_for('static',filename='/../assets/images/6.jpg')}}" alt="">
+                <div class="content">
+                    <h3><i class="far fa-clock"></i> gelecek6</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+
+                    <a href="#" class="btn">Etkinliği Görüntüle</a>
+                </div>
+            </div>
+
+
+
+
+    </section>
+
+    <!-- events section ends -->
+    <!-- <section class="packbutton" id="packbutton">  -->
+
+    <div class="content">
+
+        <a href="events.html" class="btn">Tüm Etkinlikler</a>
+    </div>
+
+
+
+    <!-- companies section starts  -->
+
+    <section class="companies" id="companies">
+
+        <h1 class="heading">
+            <span>Ş</span>
+            <span>i</span>
+            <span>r</span>
+            <span>k</span>
+            <span>e</span>
+            <span>t</span>
+            <span>l</span>
+            <span>e</span>
+            <span>r</span>
+        </h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <img src="{{ url_for('static',filename='/../assets/images/s1.jpg')}}" alt="">
+                <div class="content">
+                    <h3>Asal</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>
+                    <a href="company.html" class="btn">İncele</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="{{ url_for('static',filename='/../assets/images/s2.jpg')}}" alt="">
+                <div class="content">
+                    <h3>Fa</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>
+                    <a href="#" class="btn">İncele</a>
+                </div>
+
+
+
+            </div>
+
+    </section>
+    <!-- companies section ends -->
+    <div class="content">
+
+        <a href="companies.html" class="btn">Tüm Şirketler</a>
+    </div>
+
+
+    <section></section>
+
+  
+
+
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+   
+    <script src="{{ url_for('static',filename='/../assets/js/script.js')}}"></script>
+
+</body>
+
+</html>
