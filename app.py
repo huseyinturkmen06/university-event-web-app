@@ -6,7 +6,7 @@ from werkzeug.utils import secure_filename
 import os
 import time
 
-#src="{{ url_for('static',filename='/assets/images/uploads/'+ d.company_photo )}}
+
 
 # Kullanıcı Giriş Decorator
 def login_required_user(f):
@@ -15,7 +15,7 @@ def login_required_user(f):
         if "logged_in_user" in session:
             return f(*args, **kwargs)
         else:
-            return redirect(url_for("forbidden"))           # YETKİSİZ ERİŞİMDE TEKRARDAN LOGIN SAYFASINA YÖNLENDİRİLİYORUZ
+            return redirect(url_for("forbidden"))         
     return decorated_function
 
 
@@ -25,7 +25,7 @@ def login_required_admin(f):
         if "logged_in_admin" in session:
             return f(*args, **kwargs)
         else:
-            return redirect(url_for("forbidden"))           # YETKİSİZ ERİŞİMDE TEKRARDAN LOGIN SAYFASINA YÖNLENDİRİLİYORUZ
+            return redirect(url_for("forbidden"))         
     return decorated_function
 
 
@@ -54,14 +54,12 @@ def slash():
 def page_not_found(error):
     return render_template('404.html'), 404
 
-
-#---------------------------KULLANICI LOGIN-----------------------------------------
-
+################################################################
 
 
 @app.route("/kullanicikayitol",methods = ["GET", "POST"])
 def kullanicikayitol():
-    if request.method == "POST":          # KAYIT OLMA GİBİ BİR VERİ YOLLAMAYA POST REQUEST DENİR
+    if request.method == "POST":          
         name = request.form.get('name')
         surname = request.form.get('surname')
         student_id = request.form.get('student_id')
@@ -83,12 +81,12 @@ def kullanicikayitol():
 
 @app.route("/cikisyap")
 def cikisyapkullanici():
-    session.clear()                         # SESSION TEMİZLEMEYİ MUTLAKA YAP UNUTMA SAKIN
+    session.clear()                        
     return redirect(url_for("kullanicigirisyap"))
 
 @app.route("/cikisyapadmin")
 def cikisyapadmin():
-    session.clear()                         # SESSION TEMİZLEMEYİ MUTLAKA YAP UNUTMA SAKIN
+    session.clear()                        
     return redirect(url_for("yoneticigirisyap"))
 
 @app.route("/kullanicigirisyap",methods = ["GET","POST"])
@@ -126,7 +124,6 @@ def kullanicigirisyap():
 #----------------------------------------------------------------------------
 
 
-#----------------------------KULLANICI İŞLEMLERİ-----------------------------
 @app.route("/kullanicianasayfa")
 @login_required_user
 def kullanicianasayfa():
@@ -234,7 +231,7 @@ def firmalar():
 
 
 
-#data veya data2 de hata var. IndexError: tuple index out of range / line:385
+
 @app.route("/etkinlikdetay/<string:eid>")
 @login_required_user
 def etkinlikdetay(eid):
@@ -244,13 +241,13 @@ def etkinlikdetay(eid):
     sorgu = "Select * from etkinlikler where id = %s"
     result = cursor.execute(sorgu,(eid,))
     if result >= 0:
-        data = cursor.fetchall()        #data = etkinliğin tüm bilgileri 
+        data = cursor.fetchall()        
         sorgu2 = "Select * from kullanicilar where student_id = %s"
         # sorgu3 = "Select * from yonetici where admin_nickname = %s" 
         resultkullanici = cursor2.execute(sorgu2,(session["student_id"],))
         # resultyonetici = cursor3.execute(sorgu2,(session["nickname"],))
         if resultkullanici > 0:  
-            data2 = cursor2.fetchall()      #data2 = kullanıcının bilgileri
+            data2 = cursor2.fetchall()      
             if not kontrol(eid):
                 varmi = kontrol(eid) 
                 return render_template("etkinlikdetay.html", data2 = data[0],  data = data2[0], varmi = varmi)  
@@ -277,7 +274,7 @@ def kontrol(eid):
     else:
         return False  
 
-@app.route("/etkinligebasvur/<string:eid>")  #burada id = kullanıcı id
+@app.route("/etkinligebasvur/<string:eid>")  
 @login_required_user
 def etkinligebasvur(eid):
     cursor = mysql.connection.cursor()
@@ -285,7 +282,7 @@ def etkinligebasvur(eid):
     sorgu = "Select * from kullanicilar where id = %s"    
     result = cursor.execute(sorgu,(session["id"],))
     if result >= 0:
-        data = cursor.fetchall()  #data = kullanıcı bilgisi
+        data = cursor.fetchall()  
         sorgu2 = "Insert into etkinlik_katilimci(etkinlik_id,katilimci_id) VALUES(%s,%s)"
         cursor2.execute(sorgu2,(eid, session["id"]))  
         mysql.connection.commit()
@@ -333,7 +330,11 @@ def sertifikalarim():
 
 
 
-# --------------------------YONETİCİ LOGIN---------------------------------
+################################################################
+################################################################
+################################################################
+
+
 @app.route("/yoneticigirisyap",methods = ["GET","POST"])
 def yoneticigirisyap():
     session.clear()
@@ -382,7 +383,7 @@ def etkinlikolustur():
         cursor = mysql.connection.cursor()
 
         upload_image = request.files["event_photo"]
-        event_photo = secure_filename(upload_image.filename)    # Used to store filename
+        event_photo = secure_filename(upload_image.filename)    
         if upload_image != "":
             filepath = os.path.join(app.config["UPLOAD_FOLDER"],upload_image.filename)
             upload_image.save(filepath)
@@ -455,7 +456,7 @@ def etkinligiguncelle(id):
             event_department = request.form.getlist('event_department') 
             event_department = listToString(event_department)    
             upload_image = request.files["event_photo"]
-            event_photo = secure_filename(upload_image.filename)    # Used to store filename
+            event_photo = secure_filename(upload_image.filename)   
             if upload_image != "":
                 filepath = os.path.join(app.config["UPLOAD_FOLDER"],upload_image.filename)
                 upload_image.save(filepath)
@@ -496,7 +497,7 @@ def firmaekle():
         cursor = mysql.connection.cursor()
 
         upload_image = request.files["company_photo"]
-        company_photo = secure_filename(upload_image.filename)    # Used to store filename
+        company_photo = secure_filename(upload_image.filename)    
         if upload_image != "":
             filepath = os.path.join(app.config["UPLOAD_FOLDER"],upload_image.filename)
             upload_image.save(filepath)
@@ -552,7 +553,7 @@ def firmasil(id):
     cursor.close()
     return redirect(url_for("firmalarigoruntule"))  
 
-@app.route("/firmaguncelle/<string:id>",methods=["GET","POST"])  # BURADA HATA VAR. GÜNCELLEME SONRASI URL YÖNLENDİRMEDE. TEKRARDAN İLGİLEN!!
+@app.route("/firmaguncelle/<string:id>",methods=["GET","POST"])  
 @login_required_admin
 def firmaguncelle(id):
     if request.method == "POST":          
@@ -747,4 +748,4 @@ def profilincele(id):
 
 
 if __name__ == "__main__":
-    app.run(debug=True,port=5858)
+    app.run(debug=True,port=0606)
